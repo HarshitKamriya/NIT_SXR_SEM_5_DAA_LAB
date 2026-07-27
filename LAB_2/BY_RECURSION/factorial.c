@@ -8,6 +8,7 @@ int factorial(int *n){
 }
 int main(){
     int n;
+    scanf("%d",&n);
     printf("Enter the value of n: ");
     int ans = factorial(&n);
     printf("The factorial of number is: %d",ans);
