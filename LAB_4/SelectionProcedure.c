@@ -18,11 +18,30 @@ int rearrange(int arr[],int sp,int ep){
     arr[p2] = temp;
     return p2;
 }
-void quicksort(int arr[],int sp,int ep){
-    if(sp>= ep) return;
+int slectkmin(int arr[],int sp,int ep,int k){
+    if(sp == ep){
+        if(sp==k-1){
+            return arr[sp];
+        }
+        else{
+            return -1;
+        }
+    }
     int m =  rearrange(arr,sp,ep);
-    quicksort(arr,sp,m-1);
-    quicksort(arr,m+1,ep);   
+    int left = -1;
+    int right = -1;
+    if(m==k-1){
+        return arr[m];
+    }
+    else if(m<k-1){
+        left = slectkmin(arr,m+1,ep,k);
+    } 
+    else{
+        right = slectkmin(arr,sp,m-1,k);
+    }
+    if(left != -1) return left;
+    if(right != -1) return right;
+    return -1;
 }
 void printarray(int arr[],int n){
     printf("The array values are: ");
@@ -31,10 +50,10 @@ void printarray(int arr[],int n){
     }
 }
 int main(){
-    int arr[]  = {4,6,2,1,9,43,23};
+    int arr[]  = {4,4,2,1,9,43,23};
     printarray(arr,7);
     printf("\n");
-    quicksort(arr,0,6);
-    printarray(arr,7);
+    int ans = slectkmin(arr,0,6,4);
+    printf("the %d min value in array is: %d",4,ans);
     return 0;
 }
