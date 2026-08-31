@@ -34,10 +34,10 @@ void printarray(int arr[],int n){
     }
 }
 int main(){
-    int arr[]  = {4,6,2,1,9,43,23};
-    printarray(arr,7);
+    int arr[]  = {4,6,2,1,9,43,23,56};
+    printarray(arr,8);
     printf("\n");
-    mergesort(arr,0,6);
-    printarray(arr,7);
+    mergesort(arr,0,8);
+    printarray(arr,8);
     return 0;
 }
