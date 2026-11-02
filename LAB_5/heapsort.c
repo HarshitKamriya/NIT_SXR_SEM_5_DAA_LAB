@@ -20,7 +20,7 @@ void heapify(int arr[],int i,int n){
     
 }
 void build_heap(int arr[],int n){
-    int start = (n+2-1)/2;
+    int start = (n+1)/2;
     for(int i=start;i>=0;i--){
         heapify(arr,i,n);
     }
